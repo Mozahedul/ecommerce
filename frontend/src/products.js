@@ -49,7 +49,7 @@ const products = [
     price: 399.99,
     countInStock: 11,
     rating: 5,
-    numReviews: 12,
+    numReviews: 98,
   },
   {
     _id: '5',
@@ -75,8 +75,8 @@ const products = [
     price: 29.99,
     countInStock: 0,
     rating: 4,
-    numReviews: 12,
+    numReviews: 120,
   },
-]
+];
 
-export default products
+export default products;

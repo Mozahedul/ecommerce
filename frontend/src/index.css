@@ -7,3 +7,12 @@ main {
   -ms-flex-positive: 0;
   flex-grow: 0;
 }
+
+.rating span {
+  padding-right: 0.08rem;
+}
+
+.rating .textReview {
+  font-size: 0.8rem;
+  padding-left: 0.3rem;
+}
