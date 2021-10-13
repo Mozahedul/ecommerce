@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
 
-      <main>
+      <main className="py-3">
         <Container>
           <h1>Welcome to eCommerce</h1>
         </Container>
