@@ -1,8 +1,8 @@
+import colors from 'colors';
 import dotenv from 'dotenv';
 import express from 'express';
 import connectDB from './config/db.js';
 import products from './data/products.js';
-import colors from 'colors';
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ app.get('/api/products', (req, res) => {
 });
 
 app.get('/api/products/:id', (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
+  const product = products.find(p => p._id === req.params.id);
   res.json(product);
 });
 
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(
     colors.green.bold.underline(
-      `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`,
-    ),
+      `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    )
   );
 });
