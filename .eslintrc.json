@@ -51,6 +51,7 @@
     "node/prefer-promises/fs": "error",
     "no-path-concat": "off",
     "import/extensions": "off",
-    "no-sync": "off"
+    "no-sync": "off",
+    "no-nested-ternary": "off"
   }
 }
