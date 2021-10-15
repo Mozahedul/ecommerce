@@ -1,0 +1,54 @@
+{  
+    "tags": {
+        "allowUnknownTags": ["category"]
+    },
+    "source":{
+        "include": ["frontend", "backend"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules/|docs|/node_modules/)"
+    },
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/better-docs/category"
+    ],
+    "opts": {
+        "encoding": "utf8",
+        "recurse": true,
+        "verbose": true,
+        "destination": "./JSDocs/",
+        "template": "node_modules/better-docs",
+        "readme": "JSDocs/README.md",
+        "tutorials": "./JSDocs/tutorials"
+    },
+  
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "search": true,
+        "better-docs": {
+            "name": "eCommerce",          
+            "title": "eCommerce ",
+            "css": "style.css",
+            "trackingCode": "Loading...",
+        "hideGenerator": false,
+            "navLinks": [
+                {
+                    "label": "Github",
+                    "href": "https://github.com/Mozahedul"
+                },
+                {
+                    "label": "Example Application",
+                    "href": "https://admin-bro-example-app.herokuapp.com/admin"
+                },
+  
+                {
+                    "label": "Media",
+                    "href": "https://www.facebook.com/mozahed07/"
+                }
+            ]
+        }
+    }
+ }
+  
+ 
+ 

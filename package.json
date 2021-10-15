@@ -14,7 +14,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "linter": "npm i -D prettier && npm i -D eslint-plugin-prettier && npm i -D eslint-config-prettier && npm i -D eslint-plugin-node && npm i -D eslint-config-node",
     "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d"
+    "data:destroy": "node backend/seeder.js -d",
+    "doc": "jsdoc -r -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "mongoose": "^6.0.10"
   },
   "devDependencies": {
+    "better-docs": "^2.3.2",
     "concurrently": "^6.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -46,6 +48,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jsdoc": "^3.6.7",
     "prettier": "^2.4.1"
   }
 }

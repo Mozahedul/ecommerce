@@ -4,9 +4,16 @@ import Product from '../models/productModel.js';
 
 const router = express.Router();
 
-// @desc - Fetching all products from database
-// @route - GET /api/products
-// @access - Public
+/**
+ * @async
+ * @function callback function
+ * @desc Fetching all products from database
+ * - Route - GET /api/products
+ * - access - Public
+ * @param {Object} req - request object to get data from server
+ * @param {Object} res - response object to send data to server
+ * @category Backend
+ */
 router.get(
   '/',
   asyncHandler(async (req, res) => {
@@ -15,9 +22,16 @@ router.get(
   })
 );
 
-// @desc - Fetching single product from database
-// @route - GET /api/products/:id
-// @access - Public
+/**
+ * @async
+ * @function callback function
+ * @desc Fetching single product from database
+ * - Route - GET /api/products/:id
+ * - access - Public
+ * @param {Object} req - request object to get data from server
+ * @param {Object} res - response object to send data to server
+ * @category Backend
+ */
 router.get(
   '/:id',
   asyncHandler(async (req, res) => {
