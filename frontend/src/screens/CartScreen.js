@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import {
   Col,
   Image,
@@ -29,7 +29,8 @@ const CartScreen = ({ match, location, history }) => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = id => {
-    console.log('remove from cart');
+    dispatch(removeFromCart(id));
+    history.push('/cart');
   };
 
   const checkoutHandler = () => {
@@ -84,7 +85,7 @@ const CartScreen = ({ match, location, history }) => {
                       <Button
                         type="button"
                         variant="light"
-                        onClick={() => removeFromCartHandler()}
+                        onClick={() => removeFromCartHandler(item.product)}
                       >
                         <i className="fas fa-trash"></i>
                       </Button>
