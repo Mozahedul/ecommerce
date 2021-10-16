@@ -52,6 +52,7 @@
     "no-path-concat": "off",
     "import/extensions": "off",
     "no-sync": "off",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "no-return-await": "off"
   }
 }
