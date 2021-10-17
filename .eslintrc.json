@@ -54,6 +54,7 @@
     "no-sync": "off",
     "no-nested-ternary": "off",
     "no-return-await": "off",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "no-invalid-this": "off"
   }
 }
