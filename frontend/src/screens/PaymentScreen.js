@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { savePaymentsMethod } from '../actions/cartActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 import FormContainer from '../components/FormContainer';
 
 const PaymentScreen = ({ history }) => {
@@ -24,6 +25,7 @@ const PaymentScreen = ({ history }) => {
 
   return (
     <FormContainer>
+      <CheckoutSteps step1 step2 step3 />
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Label as="legend">Select Method</Form.Label>
