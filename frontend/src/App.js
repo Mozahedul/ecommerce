@@ -7,6 +7,7 @@ import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProductScreen from './screens/ProductScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
+          <Route path="/profile" component={ProfileScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
