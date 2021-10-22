@@ -8,7 +8,6 @@ import {
 } from '../constants/productConstants';
 
 export const productListReducers = (state = { products: [] }, action) => {
-  console.log(action);
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, products: [] };
