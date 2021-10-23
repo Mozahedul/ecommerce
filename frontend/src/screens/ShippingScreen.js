@@ -31,7 +31,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="Address"
-            value={address}
+            value={address || ''}
             onChange={e => setAddress(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -41,7 +41,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="city"
-            value={city}
+            value={city || ''}
             onChange={e => setCity(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -51,7 +51,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="postalCode"
-            value={postalCode}
+            value={postalCode || ''}
             onChange={e => setPostalCode(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -61,7 +61,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="country"
-            value={country}
+            value={country || ''}
             onChange={e => setCountry(e.target.value)}
           ></Form.Control>
         </Form.Group>
