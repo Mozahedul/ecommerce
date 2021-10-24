@@ -107,6 +107,8 @@ const ProfileScreen = ({ history }) => {
           <Loader />
         ) : errorOrders ? (
           <Message variant="danger">{errorOrders}</Message>
+        ) : orders.length === 0 ? (
+          <Message variant="info">You don't have any order yet</Message>
         ) : (
           <Table striped bordered hover responsive className="table-sm">
             <thead>
