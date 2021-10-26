@@ -65,7 +65,7 @@ const ProfileScreen = ({ history }) => {
             <Form.Control
               type="text"
               placeholder="Name"
-              value={name}
+              value={name || ''}
               onChange={e => setName(e.target.value)}
             ></Form.Control>
           </Form.Group>
@@ -74,7 +74,7 @@ const ProfileScreen = ({ history }) => {
             <Form.Control
               type="email"
               placeholder="email"
-              value={email}
+              value={email || ''}
               onChange={e => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>
