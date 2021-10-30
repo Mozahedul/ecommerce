@@ -8,8 +8,21 @@ import {
   PRODUCT_DELETE_FAIL,
   PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_SUCCESS,
+  PRODUCT_CREATE_FAIL,
+  PRODUCT_CREATE_REQUEST,
+  PRODUCT_CREATE_SUCCESS,
 } from '../constants/productConstants';
 import axios from 'axios';
+
+/**
+ * @async
+ * @function listProducts
+ * @desc get all products list
+ * - Route GET /api/products
+ * - Access Public
+ * @returns payload
+ * @category Backend
+ */
 
 export const listProducts = () => async dispatch => {
   try {
@@ -34,6 +47,17 @@ export const listProducts = () => async dispatch => {
   }
 };
 
+/**
+ * @async
+ * @function listProductDetails
+ * @desc get single product details from database with axios
+ * - Route GET /api/products/:id
+ * - Access Public
+ * @param {number} id
+ * @returns payload
+ * @category Frontend
+ */
+
 export const listProductDetails = id => async dispatch => {
   try {
     dispatch({
@@ -57,6 +81,14 @@ export const listProductDetails = id => async dispatch => {
   }
 };
 
+/**
+ * @async
+ * @function deleteProduct
+ * @desc delete a product from database
+ * - Route - DELETE /api/products/:id
+ * @param {number} id
+ * @returns success message
+ */
 export const deleteProduct = id => async (dispatch, getState) => {
   try {
     dispatch({
@@ -81,6 +113,39 @@ export const deleteProduct = id => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_DELETE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const createProduct = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: PRODUCT_CREATE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.post('/api/products', {}, config);
+
+    dispatch({
+      type: PRODUCT_CREATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_CREATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
