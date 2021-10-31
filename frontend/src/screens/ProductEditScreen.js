@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import axios from 'axios';
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -18,7 +19,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [countInStock, setCountInStock] = useState(0);
-  // const [rating, setRating] = useState(0);
+  const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -51,6 +52,28 @@ const ProductEditScreen = ({ match, history }) => {
     }
   }, [dispatch, history, product, productId, successUpdate]);
 
+  const uploadFileHandler = async e => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      };
+
+      const { data } = await axios.post('/api/uploads', formData, config);
+      setImage(data);
+      setUploading(false);
+    } catch (error) {
+      console.log(error);
+      setUploading(false);
+    }
+  };
+
   const submitHandler = e => {
     e.preventDefault();
     dispatch(
@@ -66,6 +89,7 @@ const ProductEditScreen = ({ match, history }) => {
       })
     );
   };
+
   return (
     <>
       <Link to="/admin/productList" className="btn btn-light my-3">
@@ -81,7 +105,7 @@ const ProductEditScreen = ({ match, history }) => {
           <Message variant="danger">{error}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId="name">
+            <Form.Group className="mt-3" controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -91,7 +115,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="price">
+            <Form.Group className="mt-3" controlId="price">
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
@@ -101,7 +125,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="image">
+            <Form.Group className="mt-3" controlId="image">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -109,9 +133,17 @@ const ProductEditScreen = ({ match, history }) => {
                 value={image}
                 onChange={e => setImage(e.target.value)}
               ></Form.Control>
+              <Form.File
+                className="mt-3"
+                id="image-file"
+                label="Choose File"
+                custom
+                onChange={uploadFileHandler}
+              ></Form.File>
+              {uploading && <Loader />}
             </Form.Group>
 
-            <Form.Group controlId="brand">
+            <Form.Group className="mt-3" controlId="brand">
               <Form.Label>Brand</Form.Label>
               <Form.Control
                 type="text"
@@ -121,7 +153,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="countInStock">
+            <Form.Group className="mt-3" controlId="countInStock">
               <Form.Label>CountInStock</Form.Label>
               <Form.Control
                 type="number"
@@ -131,7 +163,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="category">
+            <Form.Group className="mt-3" controlId="category">
               <Form.Label>Category</Form.Label>
               <Form.Control
                 type="text"
@@ -141,7 +173,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="description">
+            <Form.Group className="mt-3" controlId="description">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
@@ -151,7 +183,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Button type="submit" variant="primary">
+            <Button className="mt-3" type="submit" variant="primary">
               Update
             </Button>
           </Form>
