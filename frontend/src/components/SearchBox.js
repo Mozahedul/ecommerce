@@ -3,10 +3,11 @@ import { Button, Form, Col, Row } from 'react-bootstrap';
 
 const SearchBox = ({ history }) => {
   const [keyword, setKeyword] = useState('');
+  console.log(keyword);
 
   const submitHandler = e => {
     e.preventDefault();
-    if (keyword.trim()) {
+    if (keyword) {
       history.push(`/search/${keyword}`);
     } else {
       history.push('/');

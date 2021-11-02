@@ -14,10 +14,13 @@ const getProduct = asyncHandler(async (req, res) => {
     ? {
         name: {
           $regex: req.query.keyword,
-          $options: 'i',
+          $options: 'xi',
         },
       }
     : {};
+  /* 
+    $regex provides regular expression capabilities for matching pattern string in query.
+     */
   const products = await Product.find({ ...keyword });
   res.json(products);
 });
