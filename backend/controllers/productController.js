@@ -10,6 +10,9 @@ import Product from '../models/productModel.js';
  * @category Backend
  */
 const getProduct = asyncHandler(async (req, res) => {
+  const pageSize = 3;
+  const page = Number(req.query.pageNumber) || 1;
+
   const keyword = req.query.keyword
     ? {
         name: {
@@ -21,8 +24,12 @@ const getProduct = asyncHandler(async (req, res) => {
   /* 
     $regex provides regular expression capabilities for matching pattern string in query.
      */
-  const products = await Product.find({ ...keyword });
-  res.json(products);
+
+  const count = await Product.count({ ...keyword });
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 /**
