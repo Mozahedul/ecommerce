@@ -2,10 +2,14 @@ main {
   min-height: 80vh;
 }
 
-.navbar-collapse {
+/* .navbar-collapse {
   -webkit-box-flex: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
+} */
+
+.navbar-nav {
+  margin-left: auto;
 }
 
 .rating span {
