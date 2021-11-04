@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { listMyOrders } from '../actions/orderActions';
 import { LinkContainer } from 'react-router-bootstrap';
+import Meta from '../components/Meta';
 
 const ProfileScreen = ({ history }) => {
   const [name, setName] = useState('');
@@ -53,6 +54,7 @@ const ProfileScreen = ({ history }) => {
 
   return (
     <Row>
+      {userInfo && <Meta title={userInfo.name} />}
       <Col md={3}>
         <h2>User Profile</h2>
         {loading && <Loader />}

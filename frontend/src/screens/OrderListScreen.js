@@ -5,6 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { listOrders } from '../actions/orderActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ const OrderListScreen = ({ history }) => {
         ) : error ? (
           <Message variant="danger">{error}</Message>
         ) : (
+          <>
+          <Meta title="Order list page"/>
           <Table striped bordered responsive hover className="table-sm">
             <thead>
               <tr>
@@ -80,6 +83,7 @@ const OrderListScreen = ({ history }) => {
               ))}
             </tbody>
           </Table>
+          </>
         )
       ) : (
         <Message variant="info">You have no orders.</Message>

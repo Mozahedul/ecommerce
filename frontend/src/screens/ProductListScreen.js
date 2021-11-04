@@ -9,6 +9,7 @@ import {
 } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
@@ -94,6 +95,7 @@ const ProductListScreen = ({ match, history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title="Products list page" />
           <Table striped bordered responsive hover className="table-sm">
             <thead>
               <tr>

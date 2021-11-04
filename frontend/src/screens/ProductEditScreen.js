@@ -8,6 +8,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 import axios from 'axios';
+import Meta from '../components/Meta';
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -92,6 +93,7 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <>
+      <Meta title="Product edit page" />
       <Link to="/admin/productList" className="btn btn-light my-3">
         Go Back
       </Link>

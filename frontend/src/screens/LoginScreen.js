@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/userActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 
 const LoginScreen = ({ history, location }) => {
   const [email, setEmail] = useState('');
@@ -32,6 +33,7 @@ const LoginScreen = ({ history, location }) => {
 
   return (
     <FormContainer>
+      <Meta title="Login page" />
       <h2 className="my-3">Sign In </h2>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}

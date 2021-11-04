@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
+      <Meta title="Place order page" />
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>

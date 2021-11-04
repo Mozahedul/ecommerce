@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions';
+import Meta from '../components/Meta';
 import {
   Col,
   Image,
@@ -39,6 +40,7 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
+      <Meta title="Shopping cart" />
       <Row>
         <Col md={8}>
           <h2 className="my-3">Shopping Cart</h2>
