@@ -15,7 +15,8 @@
     "linter": "npm i -D prettier && npm i -D eslint-plugin-prettier && npm i -D eslint-config-prettier && npm i -D eslint-plugin-node && npm i -D eslint-config-node",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d",
-    "doc": "jsdoc -r -c jsdoc.json"
+    "doc": "jsdoc -r -c jsdoc.json",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
