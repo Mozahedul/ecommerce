@@ -1,0 +1,58 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "MERN eCommerce shopping cart app",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": "14.17.5"
+  },
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "linter": "npm i -D prettier && npm i -D eslint-plugin-prettier && npm i -D eslint-config-prettier && npm i -D eslint-plugin-node && npm i -D eslint-config-node",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d",
+    "doc": "jsdoc -r -c jsdoc.json",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mozahedul/ecommerce.git"
+  },
+  "author": "Mozahedul Islam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mozahedul/ecommerce/issues"
+  },
+  "homepage": "https://github.com/Mozahedul/ecommerce#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.10",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.3"
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2",
+    "concurrently": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jsdoc": "^3.6.7",
+    "prettier": "^2.4.1"
+  }
+}
