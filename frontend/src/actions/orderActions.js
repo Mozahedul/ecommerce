@@ -4,6 +4,7 @@ import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_SUCCESS,
+  ORDER_CREATE_RESET,
   ORDER_DELIVER_FAIL,
   ORDER_DELIVER_REQUEST,
   ORDER_DELIVER_SUCCESS,
@@ -43,6 +44,11 @@ export const createOrder = order => async (dispatch, getState) => {
 
     dispatch({
       type: ORDER_CREATE_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: ORDER_CREATE_RESET,
       payload: data,
     });
   } catch (error) {

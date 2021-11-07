@@ -6,6 +6,7 @@ import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import Message from '../components/Message';
 import Meta from '../components/Meta';
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -37,8 +38,9 @@ const PlaceOrderScreen = ({ history }) => {
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [history, success, order]);
+  }, [history, dispatch, success, order]);
 
   const placeOrderHandler = () => {
     dispatch(
