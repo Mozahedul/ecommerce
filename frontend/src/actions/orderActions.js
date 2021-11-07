@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { logout } from './userActions';
 import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
@@ -45,12 +46,18 @@ export const createOrder = order => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
+
     dispatch({
       type: ORDER_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: message,
     });
   }
 };
