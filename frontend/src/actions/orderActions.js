@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { logout } from './userActions';
 import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
-  ORDER_CREATE_SUCCESS,
   ORDER_CREATE_RESET,
+  ORDER_CREATE_SUCCESS,
   ORDER_DELIVER_FAIL,
   ORDER_DELIVER_REQUEST,
   ORDER_DELIVER_SUCCESS,
@@ -12,6 +11,7 @@ import {
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
   ORDER_LIST_FAIL,
+  ORDER_LIST_MY_FAIL,
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
   ORDER_LIST_REQUEST,
@@ -20,6 +20,7 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
 } from '../constants/orderConstants';
+import { logout } from './userActions';
 
 export const createOrder = order => async (dispatch, getState) => {
   try {
@@ -95,6 +96,10 @@ export const getOrderDetails = id => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
+
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
     dispatch({
       type: ORDER_DETAILS_FAIL,
       payload: message,
@@ -135,6 +140,10 @@ export const payOrder =
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message;
+
+      if (message === 'Not authorized, token failed') {
+        dispatch(logout());
+      }
       dispatch({
         type: ORDER_PAY_FAIL,
         payload: message,
@@ -173,6 +182,10 @@ export const deliverOrder = order => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
+
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
     dispatch({
       type: ORDER_DELIVER_FAIL,
       payload: message,
@@ -207,8 +220,12 @@ export const listMyOrders = () => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
+
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
     dispatch({
-      type: ORDER_LIST_MY_REQUEST,
+      type: ORDER_LIST_MY_FAIL,
       payload: message,
     });
   }
@@ -241,6 +258,10 @@ export const listOrders = () => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
+
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
     dispatch({
       type: ORDER_LIST_FAIL,
       payload: message,
