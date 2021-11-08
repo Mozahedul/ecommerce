@@ -72,7 +72,7 @@ export const productDetailsReducers = (
 ) => {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
-      return { loading: true, ...state };
+      return { ...state, loading: true };
 
     case PRODUCT_DETAILS_SUCCESS:
       return { loading: false, product: action.payload };
@@ -190,7 +190,7 @@ export const productReviewCreateReducer = (state = {}, action) => {
 
 export const productTopRatedReducer = (state = { products: [] }, action) => {
   switch (action.type) {
-    case PRODUCT_TOP_REQUEST: 
+    case PRODUCT_TOP_REQUEST:
       return { loading: true, products: [] };
 
     case PRODUCT_TOP_SUCCESS:
