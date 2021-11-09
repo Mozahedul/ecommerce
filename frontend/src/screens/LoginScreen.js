@@ -18,7 +18,6 @@ const LoginScreen = ({ history, location }) => {
   const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split('=')[1] : '/';
-  console.log(redirect);
 
   const submitHandler = e => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Footer from './components/Footer';
@@ -18,8 +18,26 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import UserListScreen from './screens/UserListScreen';
+import jwt_decode from 'jwt-decode';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './actions/userActions';
 
-function App(history) {
+function App() {
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const token = userInfo?.token;
+
+  useEffect(() => {
+    if (token) {
+      const decodedToken = jwt_decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        dispatch(logout());
+      }
+    }
+  }, [token, dispatch]);
   return (
     <Router>
       <Header />
