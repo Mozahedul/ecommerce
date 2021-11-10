@@ -11,6 +11,7 @@ import Meta from '../components/Meta';
 const LoginScreen = ({ history, location }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [labelPassword, setLabelPassword] = useState('Show Password');
 
   const dispatch = useDispatch();
 
@@ -30,6 +31,27 @@ const LoginScreen = ({ history, location }) => {
     }
   }, [history, userInfo, redirect]);
 
+  const showPassword = () => {
+    const passwordField = document.getElementById('inputPassword');
+
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      setLabelPassword('Hide Password');
+    } else {
+      passwordField.type = 'password';
+      setLabelPassword('Show Password');
+    }
+  };
+
+  const passwordHandler = e => {
+    setPassword(e.target.value);
+    const passwordField = document.getElementById('inputPassword');
+    const checkForm = document.getElementById('checkId');
+    if (passwordField.value === '') {
+      checkForm.checked = false;
+    }
+  };
+
   return (
     <FormContainer>
       <Meta title="Login page" />
@@ -46,14 +68,25 @@ const LoginScreen = ({ history, location }) => {
             onChange={e => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group className="mt-3" controlId="password">
+
+        <Form.Group className="mt-3">
           <Form.Label>Enter Password</Form.Label>
           <Form.Control
             type="password"
+            id="inputPassword"
             placeholder="Enter Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={passwordHandler}
           ></Form.Control>
+        </Form.Group>
+
+        <Form.Group className="mt-3">
+          <Form.Check
+            onClick={showPassword}
+            label={labelPassword}
+            id="checkId"
+            disabled={password === ''}
+          />
         </Form.Group>
 
         <Button className="mt-3" type="submit" variant="primary">
