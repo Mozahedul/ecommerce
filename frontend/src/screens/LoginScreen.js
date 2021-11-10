@@ -43,15 +43,6 @@ const LoginScreen = ({ history, location }) => {
     }
   };
 
-  const passwordHandler = e => {
-    setPassword(e.target.value);
-    const passwordField = document.getElementById('inputPassword');
-    const checkForm = document.getElementById('checkId');
-    if (passwordField.value === '') {
-      checkForm.checked = false;
-    }
-  };
-
   return (
     <FormContainer>
       <Meta title="Login page" />
@@ -76,7 +67,7 @@ const LoginScreen = ({ history, location }) => {
             id="inputPassword"
             placeholder="Enter Password"
             value={password}
-            onChange={passwordHandler}
+            onChange={e => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
@@ -84,7 +75,6 @@ const LoginScreen = ({ history, location }) => {
           <Form.Check
             onClick={showPassword}
             label={labelPassword}
-            id="checkId"
             disabled={password === ''}
           />
         </Form.Group>

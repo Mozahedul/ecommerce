@@ -14,6 +14,10 @@ const RegisterScreen = ({ location, history }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState('Show Password');
+  const [showConfirmPassword, setShowConfirmPassword] = useState(
+    'Show Confirm Password'
+  );
 
   const dispatch = useDispatch();
 
@@ -36,6 +40,29 @@ const RegisterScreen = ({ location, history }) => {
       dispatch(register(name, email, password));
     }
   };
+
+  const checkoutHandler = () => {
+    const passwordElement = document.getElementById('passwordId');
+    if (passwordElement.type === 'password') {
+      passwordElement.type = 'text';
+      setShowPassword('Hide Password');
+    } else {
+      passwordElement.type = 'password';
+      setShowPassword('Show Password');
+    }
+  };
+
+  const checkoutConfirmHandler = () => {
+    const confirmCheckoutElement = document.getElementById('confirmPasswordId');
+    if (confirmCheckoutElement.type === 'password') {
+      confirmCheckoutElement.type = 'text';
+      setShowConfirmPassword('Hide Confirm Password');
+    } else {
+      confirmCheckoutElement.type = 'password';
+      setShowConfirmPassword('Show Confirm Password');
+    }
+  };
+
   return (
     <>
       <Meta title="Register page" />
@@ -63,24 +90,45 @@ const RegisterScreen = ({ location, history }) => {
               onChange={e => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
           <Form.Group className="mt-3" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="password"
               value={password}
+              id="passwordId"
               onChange={e => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
+          <Form.Group className="mt-2">
+            <Form.Check
+              label={showPassword}
+              onClick={checkoutHandler}
+              disabled={password === ''}
+            />
+          </Form.Group>
+
           <Form.Group className="mt-3" controlId="confirmPassword">
             <Form.Label>Confirm password</Form.Label>
             <Form.Control
               type="password"
               placeholder="confirm password"
               value={confirmPassword}
+              id="confirmPasswordId"
               onChange={e => setConfirmPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
+          <Form.Group className="mt-2">
+            <Form.Check
+              label={showConfirmPassword}
+              onClick={checkoutConfirmHandler}
+              disabled={confirmPassword === ''}
+            />
+          </Form.Group>
+
           <Button type="submit" className="my-3">
             Sign Up
           </Button>
