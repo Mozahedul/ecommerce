@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { LinkContainer } from 'react-router-bootstrap';
-import {
-  createProduct,
-  deleteProduct,
-  listProducts,
-} from '../actions/productActions';
+// import { LinkContainer } from 'react-router-bootstrap';
+import { deleteProduct, listProducts } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
-import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
+import {
+  PRODUCT_CREATE_RESET,
+  PRODUCT_DETAILS_RESET,
+} from '../constants/productConstants';
 
 const ProductListScreen = ({ match, history }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -45,11 +44,11 @@ const ProductListScreen = ({ match, history }) => {
       history.push('/login');
     }
 
-    if (successCreate) {
-      history.push(`/admin/product/${createdProduct._id}/edit`);
-    } else {
-      dispatch(listProducts('', pageNumber));
-    }
+    // if (successCreate) {
+    //   history.push(`/admin/product/create`);
+    // } else {
+    dispatch(listProducts('', pageNumber));
+    // }
   }, [
     dispatch,
     history,
@@ -67,7 +66,13 @@ const ProductListScreen = ({ match, history }) => {
   };
 
   const createProductHandler = () => {
-    dispatch(createProduct());
+    // dispatch(createProduct());
+    history.push('/admin/product/create');
+  };
+
+  const linkHandler = id => {
+    dispatch({ type: PRODUCT_DETAILS_RESET });
+    history.push(`/admin/product/${id}/edit`);
   };
   return (
     <>
@@ -116,11 +121,15 @@ const ProductListScreen = ({ match, history }) => {
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
-                    <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                      <Button variant="light" className="btn-sm">
-                        <i className="fas fa-edit"></i>
-                      </Button>
-                    </LinkContainer>
+                    {/* <LinkContainer to={`/admin/product/${product._id}/edit`}> */}
+                    <Button
+                      variant="light"
+                      className="btn-sm"
+                      onClick={() => linkHandler(product._id)}
+                    >
+                      <i className="fas fa-edit"></i>
+                    </Button>
+                    {/* </LinkContainer> */}
                     <Button
                       variant="danger"
                       className="btn-sm"

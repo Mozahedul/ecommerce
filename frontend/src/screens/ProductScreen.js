@@ -40,17 +40,18 @@ const ProductScreen = ({ history, match }) => {
     error: errorProductReview,
   } = productReviewCreate;
 
+  console.log(product);
+
   useEffect(() => {
+    if (!product._id || product._id !== match.params.id) {
+      dispatch(listProductDetails(match.params.id));
+    }
     if (successProductReview) {
       setRating(0);
       setComment('');
-      if (!product._id || product._id !== match.params.id) {
-        dispatch(listProductDetails(match.params.id));
-        dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
-      }
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
-    dispatch(listProductDetails(match.params.id));
-  }, [dispatch, match, product, successProductReview]);
+  }, [dispatch, successProductReview, product, match]);
 
   const addToCartHandler = e => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);

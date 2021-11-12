@@ -43,6 +43,7 @@ const getProduct = asyncHandler(async (req, res) => {
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
+    res.status(200);
     res.json(product);
   } else {
     res.status(404);
@@ -73,16 +74,16 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
-    name: 'sample product',
-    price: 0,
+    name: req.body.name,
+    price: req.body.price,
     user: req.user._id,
-    description: 'sample description',
-    countInStock: 0,
-    rating: 4,
-    brand: 'apple',
-    numReviews: 3,
-    image: '/image/sample.jpg',
-    category: 'electronics',
+    description: req.body.description,
+    countInStock: req.body.countInStock,
+    rating: req.body.rating,
+    brand: req.body.brand,
+    numReviews: req.body.numReviews,
+    image: req.body.image,
+    category: req.body.category,
   });
 
   const createdProduct = await product.save();

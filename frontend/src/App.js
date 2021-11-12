@@ -21,6 +21,7 @@ import UserListScreen from './screens/UserListScreen';
 import jwt_decode from 'jwt-decode';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './actions/userActions';
+import ProductCreateScreen from './screens/ProductCreateScreen';
 
 function App() {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ function App() {
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/user/:id/edit" component={UserEditScreen} />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
+          <Route path="/admin/product/create" component={ProductCreateScreen} />
           <Route path="/search/:keyword" component={HomeScreen} exact />
           <Route path="/page/:pageNumber" component={HomeScreen} exact />
           <Route

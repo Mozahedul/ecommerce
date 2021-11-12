@@ -66,7 +66,8 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post('/api/uploads', formData, config);
+      const { data } = await axios.post('/api/upload', formData, config);
+      console.log(data);
       setImage(data);
       setUploading(false);
     } catch (error) {
@@ -127,7 +128,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group className="mt-3" controlId="image">
+            <Form.Group className="mt-3">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -135,13 +136,12 @@ const ProductEditScreen = ({ match, history }) => {
                 value={image}
                 onChange={e => setImage(e.target.value)}
               ></Form.Control>
-              <Form.File
+              <Form.Control
+                type="file"
                 className="mt-3"
                 id="image-file"
-                label="Choose File"
-                custom
-                onChange={uploadFileHandler}
-              ></Form.File>
+                onClick={uploadFileHandler}
+              ></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
 
