@@ -3,11 +3,12 @@ import colors from 'colors';
 
 const connectDB = async () => {
   // For remote server
-  const PORT = process.env.MONGO_URI;
+  // const PORT = process.env.MONGO_URI;
   // For local server
-  // const PORT = process.env.LOCAL_MONGO_URI;
+  const URI = process.env.LOCAL_MONGO_URI;
+  mongoose.set('strictQuery', true);
   try {
-    const conn = await mongoose.connect(PORT, {
+    const conn = await mongoose.connect(URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

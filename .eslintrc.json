@@ -55,6 +55,7 @@
     "no-nested-ternary": "off",
     "no-return-await": "off",
     "prefer-destructuring": "off",
-    "no-invalid-this": "off"
+    "no-invalid-this": "off",
+    "prettier/prettier": "off"
   }
 }
