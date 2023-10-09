@@ -147,7 +147,7 @@ const ProductScreen = ({ history, match }) => {
           <Row className="my-5">
             <Col md={6}>
               <h2>Reviews</h2>
-              {product.reviews.length < 1 && <Message>No Reviews</Message>}
+              {product?.reviews?.length < 1 && <Message>No Reviews</Message>}
               <ListGroup variant="flush">
                 {Array.isArray(product.reviews) &&
                   product.reviews.length > 0 &&
