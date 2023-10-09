@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://ecommerce-backend-nine-xi.vercel.app",
+  "proxy": "https://ecommerce-backend-nine-xi.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
