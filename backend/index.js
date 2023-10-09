@@ -13,25 +13,29 @@ import uploadRoutes from './routes/uploadRoutes.js';
 
 dotenv.config();
 
-const app = express();
-// app.options('*', cors());
-app.use(cors());
-app.use(express.json());
-
 connectDB();
+
+const app = express();
+app.use(
+  cors({
+    origin: ['https://ecommerce-backend-nine-xi.vercel.app/'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
+app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use('https://ecommerce-backend-nine-xi.vercel.app/products', productRoutes);
-app.use('https://ecommerce-backend-nine-xi.vercel.app/users', userRoutes);
-app.use('https://ecommerce-backend-nine-xi.vercel.app/orders', orderRoutes);
-app.use('https://ecommerce-backend-nine-xi.vercel.app/upload', uploadRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/upload', uploadRoutes);
 
-app.use(
-  'https://ecommerce-backend-nine-xi.vercel.app/config/paypal',
-  (req, res) => res.send(process.env.PAYPAL_CLIENT_ID)
+app.use('/api/config/paypal', (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
 );
 
 const __dirname = path.resolve();
