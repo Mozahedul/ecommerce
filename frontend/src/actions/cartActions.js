@@ -8,7 +8,7 @@ import {
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(
-    `https://ecommerce-backend-nine-xi.vercel.app/products/${id}`
+    `${process.env.REAC_APP_API_URL}/products/${id}`
   );
   dispatch({
     type: CART_ADD_ITEM,

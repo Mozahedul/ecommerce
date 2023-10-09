@@ -37,7 +37,7 @@ export const createOrder = order => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      'https://ecommerce-backend-nine-xi.vercel.app/orders',
+      '${process.env.REAC_APP_API_URL}/orders',
       order,
       config
     );
@@ -76,7 +76,7 @@ export const getOrderDetails = id => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-nine-xi.vercel.app/orders/${id}`,
+      `${process.env.REAC_APP_API_URL}/orders/${id}`,
       config
     );
 
@@ -114,7 +114,7 @@ export const payOrder =
       };
 
       const { data } = await axios.put(
-        `https://ecommerce-backend-nine-xi.vercel.app/orders/${orderId}/pay`,
+        `${process.env.REAC_APP_API_URL}/orders/${orderId}/pay`,
         paymentResult,
         config
       );
@@ -151,7 +151,7 @@ export const deliverOrder = order => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-nine-xi.vercel.app/orders/${order._id}/deliver`,
+      `${process.env.REAC_APP_API_URL}/orders/${order._id}/deliver`,
       {},
       config
     );
@@ -188,7 +188,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      'https://ecommerce-backend-nine-xi.vercel.app/orders/myorders',
+      '${process.env.REAC_APP_API_URL}/orders/myorders',
       config
     );
 
@@ -224,7 +224,7 @@ export const listOrders = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      'https://ecommerce-backend-nine-xi.vercel.app/orders',
+      '${process.env.REAC_APP_API_URL}/orders',
       config
     );
 

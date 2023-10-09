@@ -18,7 +18,7 @@ connectDB();
 const app = express();
 // app.use(
 //   cors({
-//     origin: ['https://ecommerce-backend-nine-xi.vercel.app'],
+//     origin: ['/api'],
 //     methods: ['POST', 'GET'],
 //     credentials: true,
 //   })

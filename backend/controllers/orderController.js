@@ -5,7 +5,7 @@ import Order from '../models/orderModel.js';
  * @async
  * @function addOrderItems
  * @desc Get order by ID
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/orders/:id
+ * - Route - GET ${process.env.REAC_APP_API_URL}/orders/:id
  * - Access - Private
  * @category Backend
  */
@@ -47,7 +47,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
  * @async
  * @function addOrderItems
  * @desc Get order by ID
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/orders/:id
+ * - Route - GET ${process.env.REAC_APP_API_URL}/orders/:id
  * - Access - Private
  * @category Backend
  */
@@ -71,7 +71,7 @@ const getOrderById = asyncHandler(async (req, res) => {
  * @async
  * @function updateOrderToPaid
  * @desc Update order to paid
- * Route - GET https://ecommerce-backend-nine-xi.vercel.app/order/:id/pay
+ * Route - GET ${process.env.REAC_APP_API_URL}/order/:id/pay
  * Access - Private
  * @category Backend
  */
@@ -100,7 +100,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
  * @async
  * @function updateOrderToDelivered
  * @desc update order to delivered
- * - Route GET https://ecommerce-backend-nine-xi.vercel.app/orders/:id/deliver
+ * - Route GET ${process.env.REAC_APP_API_URL}/orders/:id/deliver
  * - Access Private/Admin
  * @category Backend
  */
@@ -124,7 +124,7 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
  * @async
  * @function getMyOrders
  * @desc Get logged in user orders
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/orders/myorders
+ * - Route - GET ${process.env.REAC_APP_API_URL}/orders/myorders
  * - Access - Private
  * @category Backend
  */
@@ -138,7 +138,7 @@ const getMyOrders = asyncHandler(async (req, res) => {
  * @async
  * @function getOrders
  * @desc Get all orders
- * - Route GET https://ecommerce-backend-nine-xi.vercel.app/orders
+ * - Route GET ${process.env.REAC_APP_API_URL}/orders
  * - Access - Private/Admin
  * @category Backend
  */

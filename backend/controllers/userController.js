@@ -6,7 +6,7 @@ import generateToken from '../utils/generateToken.js';
  * @async
  * @function authUser
  * @desc Auth user & get token
- * - Route - POST https://ecommerce-backend-nine-xi.vercel.app/users/login
+ * - Route - POST ${process.env.REAC_APP_API_URL}/users/login
  * - access - Public
  * @category Backend
  */
@@ -61,7 +61,7 @@ const registerUser = asyncHandler(async (req, res) => {
  * @async
  * @function getUserProfile
  * @desc get user profile
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/users/profile
+ * - Route - GET ${process.env.REAC_APP_API_URL}/users/profile
  * - Access - Private
  * @category Backend
  */
@@ -111,7 +111,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
  * @async
  * @function getUsers
  * @desc Get all Users
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/users
+ * - Route - GET ${process.env.REAC_APP_API_URL}/users
  * - Access - Private/Admin
  * @category Backend
  */
@@ -124,7 +124,7 @@ const getUsers = asyncHandler(async (req, res) => {
  * @async
  * @function deleteUser
  * @desc Delete a user
- * - Route - DELETE https://ecommerce-backend-nine-xi.vercel.app/users/:id
+ * - Route - DELETE ${process.env.REAC_APP_API_URL}/users/:id
  * - Access - Private/Admin
  * @category Backend
  */
@@ -145,7 +145,7 @@ const deleteUser = asyncHandler(async (req, res) => {
  * @async
  * @function getUserById
  * @desc Get user by ID
- * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/users/:id
+ * - Route - GET ${process.env.REAC_APP_API_URL}/users/:id
  * - Access - Private/Admin
  * @category Backend
  */
@@ -164,7 +164,7 @@ const getUserById = asyncHandler(async (req, res) => {
  * @async
  * @function updateUser
  * @desc Update a user
- * - Route - https://ecommerce-backend-nine-xi.vercel.app/users/:id
+ * - Route - ${process.env.REAC_APP_API_URL}/users/:id
  * - Access - Private/Admin
  * @category Backend
  */

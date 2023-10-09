@@ -39,7 +39,7 @@ export const login = (email, password) => async dispatch => {
       },
     };
     const { data } = await axios.post(
-      'https://ecommerce-backend-nine-xi.vercel.app/users/login',
+      '${process.env.REAC_APP_API_URL}/users/login',
       { email, password },
       config
     );
@@ -80,7 +80,7 @@ export const register = (name, email, password) => async dispatch => {
     };
 
     const { data } = await axios.post(
-      'https://ecommerce-backend-nine-xi.vercel.app/users',
+      '${process.env.REAC_APP_API_URL}/users',
       { name, email, password },
       config
     );
@@ -125,7 +125,7 @@ export const getUserDetails = id => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-nine-xi.vercel.app/users/${id}`,
+      `${process.env.REAC_APP_API_URL}/users/${id}`,
       config
     );
 
@@ -162,7 +162,7 @@ export const updateUsersProfile = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      'https://ecommerce-backend-nine-xi.vercel.app/users/profile',
+      '${process.env.REAC_APP_API_URL}/users/profile',
       user,
       config
     );
@@ -199,7 +199,7 @@ export const listUsers = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      'https://ecommerce-backend-nine-xi.vercel.app/users',
+      '${process.env.REAC_APP_API_URL}/users',
       config
     );
 
@@ -234,10 +234,7 @@ export const deleteUser = id => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(
-      `https://ecommerce-backend-nine-xi.vercel.app/users/${id}`,
-      config
-    );
+    await axios.delete(`${process.env.REAC_APP_API_URL}/users/${id}`, config);
 
     dispatch({
       type: USER_DELETE_SUCCESS,
@@ -271,7 +268,7 @@ export const updateUser = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-nine-xi.vercel.app/users/${user._id}`,
+      `${process.env.REAC_APP_API_URL}/users/${user._id}`,
       user,
       config
     );

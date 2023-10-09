@@ -27,7 +27,7 @@ import axios from 'axios';
  * @async
  * @function listProducts
  * @desc get all products list
- * - Route GET https://ecommerce-backend-nine-xi.vercel.app/products
+ * - Route GET ${process.env.REAC_APP_API_URL}/products
  * - Access Public
  * @returns payload
  * @category Backend
@@ -42,7 +42,7 @@ export const listProducts =
       });
 
       const { data } = await axios.get(
-        `https://ecommerce-backend-nine-xi.vercel.app/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `${process.env.REAC_APP_API_URL}/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
@@ -64,7 +64,7 @@ export const listProducts =
  * @async
  * @function listProductDetails
  * @desc get single product details from database with axios
- * - Route GET https://ecommerce-backend-nine-xi.vercel.app/products/:id
+ * - Route GET ${process.env.REAC_APP_API_URL}/products/:id
  * - Access Public
  * @param {number} id
  * @returns payload
@@ -78,7 +78,7 @@ export const listProductDetails = id => async dispatch => {
     });
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-nine-xi.vercel.app/products/${id}`
+      `${process.env.REAC_APP_API_URL}/products/${id}`
     );
 
     dispatch({
@@ -100,7 +100,7 @@ export const listProductDetails = id => async dispatch => {
  * @async
  * @function deleteProduct
  * @desc delete a product from database
- * - Route - DELETE https://ecommerce-backend-nine-xi.vercel.app/products/:id
+ * - Route - DELETE ${process.env.REAC_APP_API_URL}/products/:id
  * @param {number} id
  * @returns success message
  */
@@ -121,7 +121,7 @@ export const deleteProduct = id => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `https://ecommerce-backend-nine-xi.vercel.app/products/${id}`,
+      `${process.env.REAC_APP_API_URL}/products/${id}`,
       config
     );
 
@@ -156,7 +156,7 @@ export const createProduct = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      'https://ecommerce-backend-nine-xi.vercel.app/products',
+      '${process.env.REAC_APP_API_URL}/products',
       {},
       config
     );
@@ -194,7 +194,7 @@ export const updateProduct = product => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-nine-xi.vercel.app/products/${product._id}`,
+      `${process.env.REAC_APP_API_URL}/products/${product._id}`,
       product,
       config
     );
@@ -233,7 +233,7 @@ export const createProductReviews =
       };
 
       await axios.post(
-        `https://ecommerce-backend-nine-xi.vercel.app/products/${productId}/reviews`,
+        `${process.env.REAC_APP_API_URL}/products/${productId}/reviews`,
         review,
         config
       );
@@ -259,7 +259,7 @@ export const listTopProducts = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-nine-xi.vercel.app/products/top`
+      `${process.env.REAC_APP_API_URL}/products/top`
     );
 
     dispatch({
