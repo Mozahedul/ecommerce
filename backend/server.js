@@ -1,3 +1,4 @@
+import cors from 'cors';
 import path from 'path';
 import colors from 'colors';
 import dotenv from 'dotenv';
@@ -12,10 +13,17 @@ import uploadRoutes from './routes/uploadRoutes.js';
 
 dotenv.config();
 
-connectDB();
-
 const app = express();
+app.use(
+  cors({
+    origin: ['http://127.0.0.1.com'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
 app.use(express.json());
+
+connectDB();
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
