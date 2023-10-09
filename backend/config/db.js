@@ -6,7 +6,7 @@ const connectDB = async () => {
   const URI = process.env.MONGO_URI;
   // For local server
   // const URI = process.env.LOCAL_MONGO_URI;
-  mongoose.set('strictQuery', true);
+  // mongoose.set('strictQuery', true);
   try {
     const conn = await mongoose.connect(URI, {
       useNewUrlParser: true,

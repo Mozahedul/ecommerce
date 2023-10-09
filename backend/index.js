@@ -11,11 +11,10 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
+const app = express();
 dotenv.config();
 
 connectDB();
-
-const app = express();
 // app.use(
 //   cors({
 //     origin: ['/api'],
