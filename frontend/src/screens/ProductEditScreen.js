@@ -66,7 +66,11 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post('/api/uploads', formData, config);
+      const { data } = await axios.post(
+        'https://ecommerce-backend-nine-xi.vercel.app/uploads',
+        formData,
+        config
+      );
       setImage(data);
       setUploading(false);
     } catch (error) {

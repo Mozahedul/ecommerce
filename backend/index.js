@@ -29,13 +29,14 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/upload', uploadRoutes);
+app.use('https://ecommerce-backend-nine-xi.vercel.app/products', productRoutes);
+app.use('https://ecommerce-backend-nine-xi.vercel.app/users', userRoutes);
+app.use('https://ecommerce-backend-nine-xi.vercel.app/orders', orderRoutes);
+app.use('https://ecommerce-backend-nine-xi.vercel.app/upload', uploadRoutes);
 
-app.use('/api/config/paypal', (req, res) =>
-  res.send(process.env.PAYPAL_CLIENT_ID)
+app.use(
+  'https://ecommerce-backend-nine-xi.vercel.app/config/paypal',
+  (req, res) => res.send(process.env.PAYPAL_CLIENT_ID)
 );
 
 const __dirname = path.resolve();

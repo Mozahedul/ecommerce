@@ -27,7 +27,7 @@ import axios from 'axios';
  * @async
  * @function listProducts
  * @desc get all products list
- * - Route GET /api/products
+ * - Route GET https://ecommerce-backend-nine-xi.vercel.app/products
  * - Access Public
  * @returns payload
  * @category Backend
@@ -42,7 +42,7 @@ export const listProducts =
       });
 
       const { data } = await axios.get(
-        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `https://ecommerce-backend-nine-xi.vercel.app/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
@@ -64,7 +64,7 @@ export const listProducts =
  * @async
  * @function listProductDetails
  * @desc get single product details from database with axios
- * - Route GET /api/products/:id
+ * - Route GET https://ecommerce-backend-nine-xi.vercel.app/products/:id
  * - Access Public
  * @param {number} id
  * @returns payload
@@ -77,7 +77,9 @@ export const listProductDetails = id => async dispatch => {
       type: PRODUCT_DETAILS_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://ecommerce-backend-nine-xi.vercel.app/products/${id}`
+    );
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -98,7 +100,7 @@ export const listProductDetails = id => async dispatch => {
  * @async
  * @function deleteProduct
  * @desc delete a product from database
- * - Route - DELETE /api/products/:id
+ * - Route - DELETE https://ecommerce-backend-nine-xi.vercel.app/products/:id
  * @param {number} id
  * @returns success message
  */
@@ -118,7 +120,10 @@ export const deleteProduct = id => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/products/${id}`, config);
+    await axios.delete(
+      `https://ecommerce-backend-nine-xi.vercel.app/products/${id}`,
+      config
+    );
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -150,7 +155,11 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post('/api/products', {}, config);
+    const { data } = await axios.post(
+      'https://ecommerce-backend-nine-xi.vercel.app/products',
+      {},
+      config
+    );
 
     dispatch({
       type: PRODUCT_CREATE_SUCCESS,
@@ -185,7 +194,7 @@ export const updateProduct = product => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/${product._id}`,
+      `https://ecommerce-backend-nine-xi.vercel.app/products/${product._id}`,
       product,
       config
     );
@@ -223,7 +232,11 @@ export const createProductReviews =
         },
       };
 
-      await axios.post(`/api/products/${productId}/reviews`, review, config);
+      await axios.post(
+        `https://ecommerce-backend-nine-xi.vercel.app/products/${productId}/reviews`,
+        review,
+        config
+      );
 
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -245,7 +258,9 @@ export const listTopProducts = () => async (dispatch, getState) => {
       type: PRODUCT_TOP_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/products/top`);
+    const { data } = await axios.get(
+      `https://ecommerce-backend-nine-xi.vercel.app/products/top`
+    );
 
     dispatch({
       type: PRODUCT_TOP_SUCCESS,

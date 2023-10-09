@@ -5,7 +5,7 @@ import Product from '../models/productModel.js';
  * @async
  * @function callback function
  * @desc Fetching all products from database
- * - Route - GET /api/products
+ * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/products
  * - access - Public
  * @category Backend
  */
@@ -36,7 +36,7 @@ const getProduct = asyncHandler(async (req, res) => {
  * @async
  * @function callback function
  * @desc Fetching single product from database
- * - Route - GET /api/products/:id
+ * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/products/:id
  * - access - Public
  * @category Backend
  */
@@ -66,7 +66,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProduct
  * @desc create a product
- * - Route POST /api/products
+ * - Route POST https://ecommerce-backend-nine-xi.vercel.app/products
  * - Access Private/Admin
  * @category Backend
  */
@@ -93,7 +93,7 @@ const createProduct = asyncHandler(async (req, res) => {
  * @async
  * @function updateProduct
  * @desc Update a product
- * - Route POST /api/products/:id
+ * - Route POST https://ecommerce-backend-nine-xi.vercel.app/products/:id
  * - Access Private/Admin
  * @category Backend
  */
@@ -135,7 +135,7 @@ const updateProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProductReview
  * @desc create a new review
- * - Route - POST /api/products/:id/reviews
+ * - Route - POST https://ecommerce-backend-nine-xi.vercel.app/products/:id/reviews
  * - Access - Private
  * @category Backend
  */
@@ -180,7 +180,7 @@ const createProductReview = asyncHandler(async (req, res) => {
  * @async
  * @function getTopProducts
  * @desc Get top rated products
- * - Route - GET /api/products/top
+ * - Route - GET https://ecommerce-backend-nine-xi.vercel.app/products/top
  * - Access - Public
  * @category Backend
  */
