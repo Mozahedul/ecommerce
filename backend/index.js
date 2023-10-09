@@ -14,6 +14,7 @@ import uploadRoutes from './routes/uploadRoutes.js';
 dotenv.config();
 
 const app = express();
+app.options('*', cors());
 app.use(
   cors({
     origin: ['https://ecommerce-backend-nine-xi.vercel.app/'],
