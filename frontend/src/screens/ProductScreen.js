@@ -147,16 +147,18 @@ const ProductScreen = ({ history, match }) => {
           <Row className="my-5">
             <Col md={6}>
               <h2>Reviews</h2>
-              {product.reviews.length === 0 && <Message>No Reviews</Message>}
+              {product.reviews.length < 1 && <Message>No Reviews</Message>}
               <ListGroup variant="flush">
-                {product.reviews.map(review => (
-                  <ListGroup.Item key={review._id}>
-                    <strong>{review.name}</strong>
-                    <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
-                    <p>{review.comment}</p>
-                  </ListGroup.Item>
-                ))}
+                {Array.isArray(product.reviews) &&
+                  product.reviews.length > 0 &&
+                  product.reviews.map(review => (
+                    <ListGroup.Item key={review._id}>
+                      <strong>{review.name}</strong>
+                      <Rating value={review.rating} />
+                      <p>{review.createdAt.substring(0, 10)}</p>
+                      <p>{review.comment}</p>
+                    </ListGroup.Item>
+                  ))}
                 <ListGroup.Item className="mt-3">
                   <h2>Write a Customer Review</h2>
                   {errorProductReview && (

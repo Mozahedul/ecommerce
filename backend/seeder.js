@@ -18,9 +18,12 @@ const importData = async () => {
 
     const createdUser = await User.insertMany(users);
     const adminUser = createdUser[0]._id;
-    const sampleProduct = products.map(product => {
-      return { ...product, user: adminUser };
-    });
+    const sampleProduct =
+      Array.isArray(products) &&
+      products.length > 0 &&
+      products.map(product => {
+        return { ...product, user: adminUser };
+      });
     await Product.insertMany(sampleProduct);
     console.log(colors.green.inverse(`Data Imported From Seeder Script`));
     process.exit();

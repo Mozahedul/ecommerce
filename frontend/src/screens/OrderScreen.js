@@ -141,30 +141,32 @@ const OrderScreen = ({ match, history }) => {
                 <Message>Your order is empty</Message>
               ) : (
                 <ListGroup variant="flush">
-                  {order.orderItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
+                  {Array.isArray(order.orderItems) &&
+                    order.orderItems.length > 0 &&
+                    order.orderItems.map((item, index) => (
+                      <ListGroup.Item key={index}>
+                        <Row>
+                          <Col md={1}>
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fluid
+                              rounded
+                            />
+                          </Col>
+                          <Col>
+                            <Link to={`/product/${item.product}`}>
+                              {item.name}
+                            </Link>
+                          </Col>
 
-                        <Col md={4}>
-                          {item.qty} x ${item.price} = $
-                          {(item.price * item.qty).toFixed(2)}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
+                          <Col md={4}>
+                            {item.qty} x ${item.price} = $
+                            {(item.price * item.qty).toFixed(2)}
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    ))}
                 </ListGroup>
               )}
             </ListGroup.Item>
