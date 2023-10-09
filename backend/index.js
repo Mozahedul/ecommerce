@@ -16,13 +16,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(
-  cors({
-    origin: ['https://ecommerce-backend-nine-xi.vercel.app/'],
-    methods: ['POST', 'GET'],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {
