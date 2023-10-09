@@ -39,7 +39,7 @@ export const login = (email, password) => async dispatch => {
       },
     };
     const { data } = await axios.post(
-      '${process.env.REAC_APP_API_URL}/users/login',
+      `${process.env.REAC_APP_API_URL}/users/login`,
       { email, password },
       config
     );
@@ -80,7 +80,7 @@ export const register = (name, email, password) => async dispatch => {
     };
 
     const { data } = await axios.post(
-      '${process.env.REAC_APP_API_URL}/users',
+      `${process.env.REAC_APP_API_URL}/users`,
       { name, email, password },
       config
     );
@@ -162,7 +162,7 @@ export const updateUsersProfile = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      '${process.env.REAC_APP_API_URL}/users/profile',
+      `${process.env.REAC_APP_API_URL}/users/profile`,
       user,
       config
     );
@@ -199,7 +199,7 @@ export const listUsers = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      '${process.env.REAC_APP_API_URL}/users',
+      `${process.env.REAC_APP_API_URL}/users`,
       config
     );
 

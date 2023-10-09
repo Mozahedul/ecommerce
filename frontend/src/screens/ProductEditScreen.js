@@ -67,7 +67,7 @@ const ProductEditScreen = ({ match, history }) => {
       };
 
       const { data } = await axios.post(
-        '${process.env.REAC_APP_API_URL}/uploads',
+        `${process.env.REAC_APP_API_URL}/uploads`,
         formData,
         config
       );

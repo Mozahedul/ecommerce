@@ -156,7 +156,7 @@ export const createProduct = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      '${process.env.REAC_APP_API_URL}/products',
+      `${process.env.REAC_APP_API_URL}/products`,
       {},
       config
     );

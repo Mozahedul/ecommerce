@@ -37,7 +37,7 @@ export const createOrder = order => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      '${process.env.REAC_APP_API_URL}/orders',
+      `${process.env.REAC_APP_API_URL}/orders`,
       order,
       config
     );
@@ -188,7 +188,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      '${process.env.REAC_APP_API_URL}/orders/myorders',
+      `${process.env.REAC_APP_API_URL}/orders/myorders`,
       config
     );
 
@@ -224,7 +224,7 @@ export const listOrders = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      '${process.env.REAC_APP_API_URL}/orders',
+      `${process.env.REAC_APP_API_URL}/orders`,
       config
     );
 
