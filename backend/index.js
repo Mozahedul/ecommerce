@@ -1,4 +1,4 @@
-import cors from 'cors';
+// import cors from 'cors';
 import path from 'path';
 import colors from 'colors';
 import dotenv from 'dotenv';
@@ -16,13 +16,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(
-  cors({
-    origin: ['https://ecommerce-backend-nine-xi.vercel.app'],
-    methods: ['POST', 'GET'],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ['https://ecommerce-backend-nine-xi.vercel.app'],
+//     methods: ['POST', 'GET'],
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {

@@ -8,14 +8,7 @@
     "node": ">=14.17.5"
   },
   "scripts": {
-    "start": "node backend/index.js",
-    "server": "nodemon backend/index.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "linter": "npm i -D prettier && npm i -D eslint-plugin-prettier && npm i -D eslint-config-prettier && npm i -D eslint-plugin-node && npm i -D eslint-config-node",
-    "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d",
-    "doc": "jsdoc -r -c jsdoc.json"
+    "start": "node backend/index.js"
   },
   "repository": {
     "type": "git",
