@@ -14,14 +14,8 @@ import uploadRoutes from './routes/uploadRoutes.js';
 dotenv.config();
 
 const app = express();
-app.options('*', cors());
-app.use(
-  cors({
-    origin: ['https://ecommerce-backend-nine-xi.vercel.app/'],
-    methods: ['POST', 'GET'],
-    credentials: true,
-  })
-);
+// app.options('*', cors());
+app.use(cors());
 app.use(express.json());
 
 connectDB();
