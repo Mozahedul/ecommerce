@@ -5,7 +5,7 @@ import Product from '../models/productModel.js';
  * @async
  * @function callback function
  * @desc Fetching all products from database
- * - Route - GET ${process.env.REAC_APP_API_URL}/products
+ * - Route - GET /api/products
  * - access - Public
  * @category Backend
  */
@@ -36,7 +36,7 @@ const getProduct = asyncHandler(async (req, res) => {
  * @async
  * @function callback function
  * @desc Fetching single product from database
- * - Route - GET ${process.env.REAC_APP_API_URL}/products/:id
+ * - Route - GET /api/products/:id
  * - access - Public
  * @category Backend
  */
@@ -66,7 +66,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProduct
  * @desc create a product
- * - Route POST ${process.env.REAC_APP_API_URL}/products
+ * - Route POST /api/products
  * - Access Private/Admin
  * @category Backend
  */
@@ -93,7 +93,7 @@ const createProduct = asyncHandler(async (req, res) => {
  * @async
  * @function updateProduct
  * @desc Update a product
- * - Route POST ${process.env.REAC_APP_API_URL}/products/:id
+ * - Route POST /api/products/:id
  * - Access Private/Admin
  * @category Backend
  */
@@ -135,7 +135,7 @@ const updateProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProductReview
  * @desc create a new review
- * - Route - POST ${process.env.REAC_APP_API_URL}/products/:id/reviews
+ * - Route - POST /api/products/:id/reviews
  * - Access - Private
  * @category Backend
  */
@@ -180,7 +180,7 @@ const createProductReview = asyncHandler(async (req, res) => {
  * @async
  * @function getTopProducts
  * @desc Get top rated products
- * - Route - GET ${process.env.REAC_APP_API_URL}/products/top
+ * - Route - GET /api/products/top
  * - Access - Public
  * @category Backend
  */

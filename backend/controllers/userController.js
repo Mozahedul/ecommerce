@@ -6,7 +6,7 @@ import generateToken from '../utils/generateToken.js';
  * @async
  * @function authUser
  * @desc Auth user & get token
- * - Route - POST ${process.env.REAC_APP_API_URL}/users/login
+ * - Route - POST /api/users/login
  * - access - Public
  * @category Backend
  */
@@ -61,7 +61,7 @@ const registerUser = asyncHandler(async (req, res) => {
  * @async
  * @function getUserProfile
  * @desc get user profile
- * - Route - GET ${process.env.REAC_APP_API_URL}/users/profile
+ * - Route - GET /api/users/profile
  * - Access - Private
  * @category Backend
  */
@@ -111,7 +111,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
  * @async
  * @function getUsers
  * @desc Get all Users
- * - Route - GET ${process.env.REAC_APP_API_URL}/users
+ * - Route - GET /api/users
  * - Access - Private/Admin
  * @category Backend
  */
@@ -124,7 +124,7 @@ const getUsers = asyncHandler(async (req, res) => {
  * @async
  * @function deleteUser
  * @desc Delete a user
- * - Route - DELETE ${process.env.REAC_APP_API_URL}/users/:id
+ * - Route - DELETE /api/users/:id
  * - Access - Private/Admin
  * @category Backend
  */
@@ -145,7 +145,7 @@ const deleteUser = asyncHandler(async (req, res) => {
  * @async
  * @function getUserById
  * @desc Get user by ID
- * - Route - GET ${process.env.REAC_APP_API_URL}/users/:id
+ * - Route - GET /api/users/:id
  * - Access - Private/Admin
  * @category Backend
  */
@@ -164,7 +164,7 @@ const getUserById = asyncHandler(async (req, res) => {
  * @async
  * @function updateUser
  * @desc Update a user
- * - Route - ${process.env.REAC_APP_API_URL}/users/:id
+ * - Route - /api/users/:id
  * - Access - Private/Admin
  * @category Backend
  */
