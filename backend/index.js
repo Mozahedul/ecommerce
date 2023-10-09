@@ -12,7 +12,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
 const app = express();
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 connectDB();
 // app.use(
