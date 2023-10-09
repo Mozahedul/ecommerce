@@ -1,4 +1,4 @@
-// import cors from 'cors';
+import cors from 'cors';
 import path from 'path';
 import colors from 'colors';
 import dotenv from 'dotenv';
@@ -15,13 +15,13 @@ const app = express();
 dotenv.config({ path: '../.env' });
 
 connectDB();
-// app.use(
-//   cors({
-//     origin: ['/api'],
-//     methods: ['POST', 'GET'],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ['https://ecommerce-backend-swi2.onrender.com/'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {
