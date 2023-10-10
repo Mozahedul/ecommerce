@@ -12,9 +12,9 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
 const app = express();
-dotenv.config({ path: '../.env' });
-
+dotenv.config({ path: '.env' });
 connectDB();
+
 app.use(
   cors({
     origin: ['https://ecommerce-backend-swi2.onrender.com'],
