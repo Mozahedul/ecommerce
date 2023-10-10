@@ -15,13 +15,13 @@ const app = express();
 dotenv.config({ path: '.env' });
 connectDB();
 
-app.use(
-  cors({
-    origin: ['https://ecommerce-backend-0p7x.onrender.com'],
-    methods: ['POST', 'GET'],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ['https://ecommerce-backend-0p7x.onrender.com'],
+//     methods: ['POST', 'GET'],
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {
