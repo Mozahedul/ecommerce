@@ -17,7 +17,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ['https://ecommerce-backend-0p7x.onrender.com'],
+    origin: ['https://ecommerce-backend-0p7x.onrender.com/api'],
     methods: ['POST', 'GET'],
     credentials: true,
   })

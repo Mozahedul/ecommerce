@@ -56,7 +56,7 @@ const OrderScreen = ({ match, history }) => {
       // Here data variable contains main information
       // data variable is renamed with clientId
       const { data: clientId } = await axios.get(
-        `https://ecommerce-backend-0p7x.onrender.com/config/paypal`
+        `https://ecommerce-backend-0p7x.onrender.com/api/config/paypal`
       );
       const script = document.createElement('script');
       script.type = 'text/javascript';

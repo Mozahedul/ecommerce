@@ -5,7 +5,7 @@ import Product from '../models/productModel.js';
  * @async
  * @function callback function
  * @desc Fetching all products from database
- * - Route - GET https://ecommerce-backend-0p7x.onrender.com/products
+ * - Route - GET https://ecommerce-backend-0p7x.onrender.com/api/products
  * - access - Public
  * @category Backend
  */
@@ -36,7 +36,7 @@ const getProduct = asyncHandler(async (req, res) => {
  * @async
  * @function callback function
  * @desc Fetching single product from database
- * - Route - GET https://ecommerce-backend-0p7x.onrender.com/products/:id
+ * - Route - GET https://ecommerce-backend-0p7x.onrender.com/api/products/:id
  * - access - Public
  * @category Backend
  */
@@ -66,7 +66,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProduct
  * @desc create a product
- * - Route POST https://ecommerce-backend-0p7x.onrender.com/products
+ * - Route POST https://ecommerce-backend-0p7x.onrender.com/api/products
  * - Access Private/Admin
  * @category Backend
  */
@@ -93,7 +93,7 @@ const createProduct = asyncHandler(async (req, res) => {
  * @async
  * @function updateProduct
  * @desc Update a product
- * - Route POST https://ecommerce-backend-0p7x.onrender.com/products/:id
+ * - Route POST https://ecommerce-backend-0p7x.onrender.com/api/products/:id
  * - Access Private/Admin
  * @category Backend
  */
@@ -135,7 +135,7 @@ const updateProduct = asyncHandler(async (req, res) => {
  * @async
  * @function createProductReview
  * @desc create a new review
- * - Route - POST https://ecommerce-backend-0p7x.onrender.com/products/:id/reviews
+ * - Route - POST https://ecommerce-backend-0p7x.onrender.com/api/products/:id/reviews
  * - Access - Private
  * @category Backend
  */
@@ -180,7 +180,7 @@ const createProductReview = asyncHandler(async (req, res) => {
  * @async
  * @function getTopProducts
  * @desc Get top rated products
- * - Route - GET https://ecommerce-backend-0p7x.onrender.com/products/top
+ * - Route - GET https://ecommerce-backend-0p7x.onrender.com/api/products/top
  * - Access - Public
  * @category Backend
  */

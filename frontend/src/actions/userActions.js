@@ -39,7 +39,7 @@ export const login = (email, password) => async dispatch => {
       },
     };
     const { data } = await axios.post(
-      `https://ecommerce-backend-0p7x.onrender.com/users/login`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users/login`,
       { email, password },
       config
     );
@@ -80,7 +80,7 @@ export const register = (name, email, password) => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `https://ecommerce-backend-0p7x.onrender.com/users`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users`,
       { name, email, password },
       config
     );
@@ -125,7 +125,7 @@ export const getUserDetails = id => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-0p7x.onrender.com/users/${id}`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users/${id}`,
       config
     );
 
@@ -162,7 +162,7 @@ export const updateUsersProfile = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-0p7x.onrender.com/users/profile`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users/profile`,
       user,
       config
     );
@@ -199,7 +199,7 @@ export const listUsers = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `https://ecommerce-backend-0p7x.onrender.com/users`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users`,
       config
     );
 
@@ -235,7 +235,7 @@ export const deleteUser = id => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `https://ecommerce-backend-0p7x.onrender.com/users/${id}`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users/${id}`,
       config
     );
 
@@ -271,7 +271,7 @@ export const updateUser = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-0p7x.onrender.com/users/${user._id}`,
+      `https://ecommerce-backend-0p7x.onrender.com/api/users/${user._id}`,
       user,
       config
     );
