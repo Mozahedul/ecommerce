@@ -27,7 +27,7 @@ import axios from 'axios';
  * @async
  * @function listProducts
  * @desc get all products list
- * - Route GET https://ecommerce-backend-0p7x.onrender.com/api/products
+ * - Route GET /api/products
  * - Access Public
  * @returns payload
  * @category Backend
@@ -42,7 +42,7 @@ export const listProducts =
       });
 
       const { data } = await axios.get(
-        `https://ecommerce-backend-0p7x.onrender.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
@@ -64,7 +64,7 @@ export const listProducts =
  * @async
  * @function listProductDetails
  * @desc get single product details from database with axios
- * - Route GET https://ecommerce-backend-0p7x.onrender.com/api/products/:id
+ * - Route GET /api/products/:id
  * - Access Public
  * @param {number} id
  * @returns payload
@@ -77,9 +77,7 @@ export const listProductDetails = id => async dispatch => {
       type: PRODUCT_DETAILS_REQUEST,
     });
 
-    const { data } = await axios.get(
-      `https://ecommerce-backend-0p7x.onrender.com/api/products/${id}`
-    );
+    const { data } = await axios.get(`/api/products/${id}`);
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -100,7 +98,7 @@ export const listProductDetails = id => async dispatch => {
  * @async
  * @function deleteProduct
  * @desc delete a product from database
- * - Route - DELETE https://ecommerce-backend-0p7x.onrender.com/api/products/:id
+ * - Route - DELETE /api/products/:id
  * @param {number} id
  * @returns success message
  */
@@ -120,10 +118,7 @@ export const deleteProduct = id => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(
-      `https://ecommerce-backend-0p7x.onrender.com/api/products/${id}`,
-      config
-    );
+    await axios.delete(`/api/products/${id}`, config);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -155,11 +150,7 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(
-      `https://ecommerce-backend-0p7x.onrender.com/api/products`,
-      {},
-      config
-    );
+    const { data } = await axios.post(`/api/products`, {}, config);
 
     dispatch({
       type: PRODUCT_CREATE_SUCCESS,
@@ -194,7 +185,7 @@ export const updateProduct = product => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-backend-0p7x.onrender.com/api/products/${product._id}`,
+      `/api/products/${product._id}`,
       product,
       config
     );
@@ -232,11 +223,7 @@ export const createProductReviews =
         },
       };
 
-      await axios.post(
-        `https://ecommerce-backend-0p7x.onrender.com/api/products/${productId}/reviews`,
-        review,
-        config
-      );
+      await axios.post(`/api/products/${productId}/reviews`, review, config);
 
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -258,9 +245,7 @@ export const listTopProducts = () => async (dispatch, getState) => {
       type: PRODUCT_TOP_REQUEST,
     });
 
-    const { data } = await axios.get(
-      `https://ecommerce-backend-0p7x.onrender.com/api/products/top`
-    );
+    const { data } = await axios.get(`/api/products/top`);
 
     dispatch({
       type: PRODUCT_TOP_SUCCESS,

@@ -66,11 +66,7 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post(
-        `https://ecommerce-backend-0p7x.onrender.com/api/uploads`,
-        formData,
-        config
-      );
+      const { data } = await axios.post(`/api/uploads`, formData, config);
       setImage(data);
       setUploading(false);
     } catch (error) {

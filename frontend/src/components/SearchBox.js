@@ -16,7 +16,11 @@ const SearchBox = ({ history }) => {
   return (
     <Form onSubmit={submitHandler} inline>
       <Row>
-        <Form.Group as={Col} controlId="searchProducts">
+        <Form.Group
+          as={Col}
+          controlId="searchProducts"
+          style={{ maxWidth: '100%' }}
+        >
           <Form.Control
             type="text"
             value={keyword}
